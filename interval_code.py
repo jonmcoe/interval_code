@@ -136,15 +136,12 @@ def special(x):
     return perm_list
 
 special(x)
-global one_j
 one_j = special(x)
 
 special(x)
-global two_j
 two_j = special(x)
 
 special(x)
-global three_j
 three_j = special(x)
 
 
@@ -160,8 +157,6 @@ def mergers():
     return hbomb, len(hbomb)
 
 
-global r
-global t
 r, t = mergers()
             
 mergers()
@@ -191,51 +186,39 @@ def miller(x):
     return perm_list
 
 miller(x)
-global one_k
 one_k = miller(x)
 
 miller(x)
-global two_k
 two_k = miller(x)
 
 miller(x)
-global three_k
 three_k = miller(x)
 
 miller(x)
-global four_k
 four_k = miller(x)
 
 miller(x)
-global five_k
 five_k = miller(x)
 
 miller(x)
-global six_k
 six_k = miller(x)
 
 miller(x)
-global seven_k
 seven_k = miller(x)
 
 miller(x)
-global eight_k
 eight_k = miller(x)
 
 miller(x)
-global a_k
 a_k = miller(x)
 
 miller(x)
-global b_k
 b_k = miller(x)
 
 miller(x)
-global c_k
 c_k = miller(x)
 
 miller(x)
-global d_k
 d_k = miller(x)
 
 def mergers_big():
@@ -249,8 +232,6 @@ def mergers_big():
     return hbomba, len(hbomba)
 
 
-global robo
-global t1000
 robo, t1000 = mergers_big()
             
 mergers_big()
@@ -380,7 +361,6 @@ credit = "\n\n--------------------------------\nfor more info visit:\nhttps://ww
 pitches_list = []  
 
 def generate_pitches(y, permutation, x, initial_pitch):
-    global pitches_list  
     pitches = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 
     for i in range(len(y)):
