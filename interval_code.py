@@ -59,7 +59,7 @@ dave = namen(random_word, rise_word, zrandom_word)
 unique_number = str(random.randint(1000, 9999))
 
 # Create the file name 
-filename = dave + '.txt'
+filename = dave + '.html'
 
 # Create the file name with the unique number
 filenamex = 'output_raw' + unique_number + '.txt'
@@ -342,7 +342,7 @@ def blip_blop(dtf):
             #print('yes sir')
     elif dtf == 'n': 
         with open(filename, 'a') as file:
-            file.write('\n')
+            file.write('<br/>')
             #print("""no ma'am""")
     else:
         exit(0)
@@ -350,11 +350,11 @@ def blip_blop(dtf):
 
 
 
-ultima_str = "\nPossible pitch outcomes using [{}] interval permutations for the [{}] entered intervals: \n\n{}\n\n".format(decision, x, selected_intervals)
+ultima_str = "<br/>Possible pitch outcomes using [{}] interval permutations for the [{}] entered intervals: <br/><br/>{}<br/><br/>".format(decision, x, selected_intervals)
 
-explain_str = "\n--------------------------------\nbinary sequence\n[0=up, 1=down]\n\n"
+explain_str = "<br/>--------------------------------<br/>binary sequence<br/>[0=up, 1=down]<br/><br/>"
 
-credit = "\n\n--------------------------------\nfor more info visit:\nhttps://www.gregpfeiffer.com\n\n"
+credit = "<br/><br/>--------------------------------<br/>for more info visit:<br/>https://www.gregpfeiffer.com<br/><br/>"
 
 
 
@@ -399,6 +399,7 @@ while True:
         print("Only sharps or none. Only letters A thru G accepted.")
 
 with open(filename, 'a') as file:
+    file.write(f'<html><body><h1 style="text-align: center">{dave}</h1>')
     file.write(ultima_str)
     file.write(initial_pitch + ' ')
 
@@ -419,17 +420,19 @@ for permutation in perm_output:
     
     with open(filename, 'a') as file:
   # Iterate through the pitches list and write each item to the file
+        file.write('<div style="font-family: monospace">')
         counter = 1
         for pitch in pitches_list:
-            file.write(pitch)
+            file.write("{:2s}".format(pitch))
             
             if counter % x == 0:
-                file.write('\n')
+                file.write('<br />')
                 
             else:
                 file.write(' ')
                 
             counter += 1
+        file.write("</div>")
             #
 
 
@@ -447,10 +450,10 @@ for permutation in perm_output:
   # Iterate through the pitches list and write each item to the file
         counter = 1
         for pitch in pitches_list:
-            file.write(pitch)
+            file.write("{:3s}".format(pitch))
             
             if counter % x == 0:
-                file.write('\n')
+                file.write('<br />')
                 
             else:
                 file.write(' ')
@@ -474,9 +477,9 @@ for pitch in junk:
 
 
 with open(filename, 'a') as file:
-    file.write("--------------------------------\n")
-    file.write("\nTotal # of piches: {}\n".format(totally))
-    file.write("\nPitch tally:\n\n")
+    file.write("--------------------------------<br />")
+    file.write("<br />Total # of piches: {}\n".format(totally))
+    file.write("<br />Pitch tally:\n<br/>")
 
 
 
@@ -484,14 +487,16 @@ with open(filename, 'a') as file:
 
 def write_to_file(filename, pitch_counts):
     with open(filename, 'a') as file:
+        file.write('<table style="border: 1px solid"><tbody>')
         for key, value in pitch_counts.items():
-            file.write("{}: {}\n".format(key, value))
+            file.write("<tr><td>{:3s}</td><td>{}</td></tr>".format(key, value))
+        file.write('</tbody></table>')
 
 
 write_to_file(filename, pitch_counts)
 
 with open(filename, 'a') as file:
-    file.write("\n")
+    file.write("<br />")
 
     
 blip_blop(dtf)
@@ -500,8 +505,9 @@ blip_blop(dtf)
 with open(filename, 'a') as file:
     file.write(credit)
     file.write(filename) 
-    file.write("\ngenerated with THE INTERVAL CODE")
-    file.write("\n\ncopyright G.C.Pfeiffer ©2022")
+    file.write("<br/>generated with THE INTERVAL CODE")
+    file.write("<br/><br/>copyright G.C.Pfeiffer ©2022")
+    file.write("</body></html>")
 
 
 
