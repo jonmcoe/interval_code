@@ -19,6 +19,7 @@ def run_standard_text_flow(intervals, ordering_mode, show_binary, tonic):
 		file.write(formatting.format_tallies(tallies))
 		if show_binary:
 			file.write(formatting.format_permuations_to_binary_string(permutations))
+		file.write('\n\n\n' + formatting.footer(filename))
 	print(f"Output written to: {filename}")
 
 

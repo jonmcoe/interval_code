@@ -17,13 +17,13 @@ def format_tallies(tallies: Dict[str, int]) -> str:
 	# TODO greg
 	return "A  5\nB  3\n"
 
-def footer() -> str:
-	return """
+def footer(filename: str) -> str:
+	return f"""
 --------------------------------
 for more info visit:
 https://www.gregpfeiffer.com
 
-Inkwell_Highway_part_VIII.txt
+{filename}
 generated with THE INTERVAL CODE
 
 copyright G.C.Pfeiffer ©2022
